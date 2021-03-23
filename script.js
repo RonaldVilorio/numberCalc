@@ -1,3 +1,4 @@
+console.log("hey");
 // 26 letters
 let obj = {
   1: ["A", "J", "S"],
@@ -10,12 +11,22 @@ let obj = {
   8: ["H", "Q", "Z"],
   9: ["I", "R"],
 };
-atob
 // capture user input
 let fullName = "Ronald Adolfo Vilorio";
+fullName = fullName.replace(/\s/g, "").toUpperCase();
 
 // translate each letter into numbers to sum up
+let numArr = [];
 
 for (let i = 0; i <= fullName.length - 1; i++) {
-    
+  for (let j = 1; j <= Object.keys(obj).length; j++) {
+    if (obj[j].includes(fullName[i])) {
+      numArr.push(j);
+    } else {
+      null;
+    }
+  }
 }
+// sum up the array of numbers
+let sum = numArr.reduce((sum, num) => sum + num);
+console.log(numArr, sum);
