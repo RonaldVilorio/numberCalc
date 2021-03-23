@@ -28,5 +28,6 @@ for (let i = 0; i <= fullName.length - 1; i++) {
   }
 }
 // sum up the array of numbers
-let sum = numArr.reduce((sum, num) => sum + num);
-console.log(numArr, sum);
+let nameNumber = numArr.reduce((sum, num) => sum + num);
+// life Path Number
+
