@@ -37,8 +37,20 @@ let obj = {
 const submitButton = document.querySelector("#submitButton");
 const birthday = document.querySelector("#birthday").value;
 const fullName = document.querySelector("#fullName").value;
+// bday = document.querySelector("#birthday").value;
+// +bday.split("-").reduce((sum,num)=>sum+num)
+
+let lifePathNum = birthday
+  .split("-")
+  .reduce((sum, num) => sum + num)
+  .split("")
+  .map((str) => +str)
+  .reduce((sum, num) => sum + num);
+if (lifePathNum !== 11 || lifePathNum !== 22) {
+  lifepathNum = "" + lifepathNum;
+  lifePathNum = +lifePathNum[0] + +lifePathNum[1];
+}
 
 function calculate(e) {
   e.preventDefault();
-
 }
