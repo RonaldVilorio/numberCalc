@@ -27,6 +27,7 @@ function lifePathCalc() {
 }
 
 function nameNumberCalc() {
+  let numArr = [];
   let fullName = document.querySelector("#fullName").value;
   fullName = fullName.replace(/\s/g, "").toUpperCase();
 
@@ -39,6 +40,7 @@ function nameNumberCalc() {
       }
     }
   }
+  numArr.reduce((sum,num)=> sum+num)
 }
 function calculate(e) {
   e.preventDefault();
