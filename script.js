@@ -1,7 +1,4 @@
 const submitButton = document.querySelector("#submitButton");
-const birthday = document.querySelector("#birthday").value;
-
-submitButton.addEventListener("click", calculate);
 
 const obj = {
   1: ["A", "J", "S"],
@@ -15,9 +12,10 @@ const obj = {
   9: ["I", "R"],
 };
 
-let fullName = document.querySelector("#fullName").value;
+submitButton.addEventListener("click", calculate);
 
 function lifePathCalc() {
+  const birthday = document.querySelector("#birthday").value;
   let lifePathNum = birthday
     .split("-")
     .reduce((sum, num) => sum + num)
@@ -25,14 +23,18 @@ function lifePathCalc() {
     .map((str) => +str)
     .reduce((sum, num) => sum + num);
   if (lifePathNum !== 11 || lifePathNum !== 22) {
-    lifepathNum = "" + lifepathNum;
+    lifePathNum = "" + lifePathNum;
     lifePathNum = +lifePathNum[0] + +lifePathNum[1];
+    console.log(lifePathNum);
+    return lifePathNum;
   }
+  console.log(lifePathNum);
+  return lifePathNum;
 }
 
 function nameNumberCalc() {
   let numArr = [];
-
+  let fullName = document.querySelector("#fullName").value;
   fullName = fullName.replace(/\s/g, "").toUpperCase();
 
   for (let i = 0; i <= fullName.length - 1; i++) {
@@ -44,16 +46,15 @@ function nameNumberCalc() {
       }
     }
   }
-  numArr.reduce((sum, num) => sum + num);
+  console.log(numArr.reduce((sum, num) => sum + num));
+  return numArr.reduce((sum, num) => sum + num);
 }
 function calculate(e) {
   e.preventDefault();
-  console.log("hey");
-  if (birthday === "" && fullName != "") {
+  if (birthday.value === "" && fullName.value != "") {
+    nameNumberCalc();
+    // document.querySelector(".appendStuff").append("h1");
+  } else if (fullName.value === "" && birthday.value != "") {
     lifePathCalc();
-    console.log(lifePathNum);
-    document.querySelector(".appendStuff").append("h1");
-  } else if (fullName === "" && birthday != "") {
-    null;
   }
 }
