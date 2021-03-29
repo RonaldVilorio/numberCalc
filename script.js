@@ -1,6 +1,8 @@
 const submitButton = document.querySelector("#submitButton");
 const birthday = document.querySelector("#birthday").value;
 
+submitButton.addEventListener("click", calculate);
+
 const obj = {
   1: ["A", "J", "S"],
   2: ["B", "K", "T"],
@@ -46,6 +48,7 @@ function nameNumberCalc() {
 }
 function calculate(e) {
   e.preventDefault();
+  console.log("hey");
   if (birthday === "" && fullName != "") {
     lifePathCalc();
     console.log(lifePathNum);
