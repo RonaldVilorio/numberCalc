@@ -25,10 +25,8 @@ function lifePathCalc() {
   if (lifePathNum !== 11 || lifePathNum !== 22) {
     lifePathNum = "" + lifePathNum;
     lifePathNum = +lifePathNum[0] + +lifePathNum[1];
-    console.log(lifePathNum);
     return lifePathNum;
   }
-  console.log(lifePathNum);
   return lifePathNum;
 }
 
@@ -46,15 +44,23 @@ function nameNumberCalc() {
       }
     }
   }
-  console.log(numArr.reduce((sum, num) => sum + num));
   return numArr.reduce((sum, num) => sum + num);
 }
 function calculate(e) {
   e.preventDefault();
   if (birthday.value === "" && fullName.value != "") {
-    nameNumberCalc();
-    // document.querySelector(".appendStuff").append("h1");
+    document
+      .querySelector(".yourNumber")
+      .append(`Name Number: ${nameNumberCalc()}`);
   } else if (fullName.value === "" && birthday.value != "") {
-    lifePathCalc();
+    document
+      .querySelector(".yourNumber")
+      .append(`Life Path Number: ${lifePathCalc()}`);
+  } else if (fullName.value != "" && birthday.value != "") {
+    document
+      .querySelector(".yourNumber")
+      .append(
+        `Life Path Number: ${lifePathCalc()}  Name Number: ${nameNumberCalc()}`
+      );
   }
 }
