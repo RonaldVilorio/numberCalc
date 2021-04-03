@@ -11,6 +11,18 @@ const obj = {
   8: ["H", "Q", "Z"],
   9: ["I", "R"],
 };
+const gematriaObj = {
+  A: 6,
+  B: 12,
+  C: 18,
+  D: 24,
+  E: 30,
+  F: 36,
+  G: 42,
+  H: 48,
+  I: 54,
+};
+console.log(gematriaObj.A);
 
 submitButton.addEventListener("click", calculate);
 
